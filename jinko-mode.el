@@ -70,7 +70,7 @@
         (modify-syntax-entry ?_ "w" syn-table)
         syn-table))
 
-(define-derived-mode jinko-mode fundamental-mode "Jinko"
+(define-derived-mode jinko-mode c-mode "Jinko"
   "major mode for editing jinko language code."
   (setq comment-start "// ") ;; FIXME Might actually be '# '
   (setq comment-end "")
