@@ -1,0 +1,6 @@
+#+TITLE: jinko-mode
+
+Major mode for jinko language
+
+#+CAPTION: preview
+[[file:preview.png]]

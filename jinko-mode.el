@@ -1,9 +1,9 @@
-;; jinko-mode.el --- Major mode for editing Jinko -*- coding: utf-8; lexical-binding: t; -*-
+;;; jinko-mode.el --- Major mode for editing Jinko -*- coding: utf-8; lexical-binding: t; -*-
 ;;
 ;; Copyright (C) 2022 Augustin Thiercelin
 ;;
 ;; Author: Augustin Thiercelin <https://github.com/n1tsu>
-;; Maintainer: Augustin Thiercelin <augustin.thiercelin@outlook.com>
+;; Maintainer: Augustin Thiercelin <augustin.thiercelin@epita.fr>
 ;; Created: February 02, 2022
 ;; Modified: February 02, 2022
 ;; Version: 1.0.0
@@ -56,7 +56,7 @@
         (,(regexp-opt jinko-fixme 'words) 0 'jinko-fixme-face t)
         (,(regexp-opt jinko-todo 'words) 0 'jinko-todo-face t)
         ("\"\\.\\*\\?" . font-lock-string-face)
-        ("func \\(\\(\\sw\\|\\s_\\)+\\)" (1 font-lock-function-name-face))
+        ("func \\(\\sw+\\)" (1 font-lock-function-name-face))
         ("\\(\\sw+\\)::\\sw+" (1 font-lock-constant-face))
         ("\\([[:digit:]]+\\)" . 'jinko-numbers-face)))
 
