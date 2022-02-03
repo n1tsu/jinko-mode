@@ -19,6 +19,14 @@
 ;;
 ;;; Code:
 
+(defun jinko-eval-buffer ()
+  (interactive)
+  (shell-command (format "~/.jinko/bin/jinko %s" buffer-file-name)))
+
+(defvar jinko-map nil "keymap for `jinko-mode'")
+(setq jinko-map (make-sparse-keymap))
+(define-key jinko-map (kbd "C-c i") 'jinko-eval-buffer)
+
 (defvar jinko-keywords nil "all keywords of jinko.")
 (setq jinko-keywords
       '("if" "else"                                                    ;; conditional
@@ -75,6 +83,7 @@
   (setq comment-start "// ") ;; FIXME Might actually be '# '
   (setq comment-end "")
   (setq font-lock-defaults '(jinko-highlights))
+  (use-local-map jinko-map)
   (display-line-numbers-mode))
 
 (add-to-list 'auto-mode-alist '("\\.jk\\'" . jinko-mode))

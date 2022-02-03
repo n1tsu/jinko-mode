@@ -1,6 +1,6 @@
 #+TITLE: jinko-mode
 
-Major mode for [[github:jinko-core/jinko][jinko]] language
+Major mode for [[https://github.com/jinko-core/jinko][jinko]] language
 
 #+CAPTION: preview
 [[file:preview.png]]
