@@ -19,21 +19,19 @@
 ;;
 ;;; Code:
 
-;; (setq jinko-keywords
-;;       '("incl" "func" "mut" "for" "in" "if" "while" "test" "loop" "bool" "type"))
+(defvar jinko-keywords nil "all keywords of jinko.")
+(setq jinko-keywords
+      '("if" "else"                                                    ;; conditional
+        "for" "in" "while" "loop"                                      ;; repeat
+        "func" "ext" "test" "mock" "mut" "return" "type" "incl" "as")) ;; statement
 
-;; (setq jinko-types
-;;       '("float" "int" "string" "void"))
-
-;; (setq jinko-keywords-regexp
-;;       (regexp-opt jinko-keywords 'words))
-
-;; (setq jinko-types-regexp
-;;       (regexp-opt jinko-types 'words))
+(defvar jinko-types nil "all types of jinko.")
+(setq jinko-types
+      '("int" "string" "float" "char" "bool"))
 
 (setq jinko-highlights
-      '(("incl\\|func\\|mut\\|for\\|in\\|if\\|while\\|test\\|loop" . 'font-lock-keyword-face)
-        ("float\\|int\\|string\\|void" . 'font-lock-type-face)))
+      `((,(regexp-opt jinko-keywords 'word) . 'font-lock-keyword-face)
+        (,(regexp-opt jinko-types 'word) . 'font-lock-type-face)))
 
 (defvar jinko-mode-syntax-table nil "Syntax table for `jinko-mode'.")
 (setq jinko-mode-syntax-table
