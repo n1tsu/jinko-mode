@@ -1,4 +1,4 @@
-;;; jinko-mode.el --- Major mode for editing Jinko -*- coding: utf-8; lexical-binding: t; -*-
+;; jinko-mode.el --- Major mode for editing Jinko -*- coding: utf-8; lexical-binding: t; -*-
 ;;
 ;; Copyright (C) 2022 Augustin Thiercelin
 ;;
@@ -18,5 +18,29 @@
 ;;  Major mode for Jinko
 ;;
 ;;; Code:
+
+;; (setq jinko-keywords
+;;       '("incl" "func" "mut" "for" "in" "if" "while" "test" "loop" "bool" "type"))
+
+;; (setq jinko-types
+;;       '("float" "int" "string" "void"))
+
+;; (setq jinko-keywords-regexp
+;;       (regexp-opt jinko-keywords 'words))
+
+;; (setq jinko-types-regexp
+;;       (regexp-opt jinko-types 'words))
+
+(setq jinko-highlights
+      '(("incl\\|func\\|mut\\|for\\|in\\|if\\|while\\|test\\|loop" . 'font-lock-keyword-face)
+        ("float\\|int\\|string\\|void" . 'font-lock-type-face)))
+
+(define-derived-mode jinko-mode fundamental-mode "Jinko"
+  "major mode for editing jinko language code."
+  (setq font-lock-defaults '(jinko-highlights)))
+
+(add-to-list 'auto-mode-alist '("\\.jk\\'" . jinko-mode))
+
+(provide 'jinko-mode)
 
 ;;; jinko-mode.el ends here
